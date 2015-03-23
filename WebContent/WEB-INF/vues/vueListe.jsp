@@ -59,6 +59,8 @@
 		</tbody>
 
 	</table>
+	<a href="?action=renseignerAjout">
+	<button type="submit" value="Ajouter">Ajouter une Variété</button></a>
 </center>
 </body>
 </html>
