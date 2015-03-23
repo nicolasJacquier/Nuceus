@@ -60,7 +60,11 @@
 
 	</table>
 	<a href="?action=renseignerAjout">
-	<button type="submit" value="Ajouter">Ajouter une Variété</button></a>
+	<button type="submit" value="Ajouter">Ajouter</button></a>
+	
+	<a href="?action=supprimerVariete">
+	<button type="submit" value="Supprimer">Supprimer</button></a>
+	
 </center>
 </body>
 </html>
