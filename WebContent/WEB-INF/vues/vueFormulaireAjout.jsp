@@ -22,6 +22,13 @@
 		<input type="submit" value="ajouter"/>
 		
 	</form>
-	<a href="?action=annuler">Annuler</a>
+	<a href="?action=visualiser">
+	<button type="submit" value="Ajouter">Resultat de l'ajout</button></a></a>
+
+	<button type="reset" value="Annuler">Annuler</button></a></a>
+	
+	
+	
+	
 </body>
 </html>

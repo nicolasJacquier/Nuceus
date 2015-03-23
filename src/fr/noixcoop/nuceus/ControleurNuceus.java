@@ -77,7 +77,7 @@ public class ControleurNuceus extends HttpServlet {
 				
 				return;
 			}
-			
+			getServletContext().getRequestDispatcher("/WEB-INF/vues/vueResultatAjout.jsp").forward(request,response);
 	
 		}
 		
