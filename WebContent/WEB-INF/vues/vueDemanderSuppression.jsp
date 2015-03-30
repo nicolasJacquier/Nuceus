@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,13 +10,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form action="index.jsp" method="get">
 	Voulez-vous vraiment supprimer cette variété ?
 	<tr>
-			<a href="?action=supprimerVariete">
-			<td><button type="submit" name="oui" value="Valider">Oui</button></td></a>
+			<td><a href="?action=supprimerVariete">
+			<button type="submit" value="Valider">Oui</button></a></td>
 			
-			<a href="?action=supprimerVariete">
-			<td><button type="submit" name="non" value="annuler">Annuler</button></td>
+			<td><a href="?action=annulerAjout">
+			<button type="reset" value="Annuler">Annuler</button></a></td>
 	</tr>
+</form> 
 </body>
 </html>

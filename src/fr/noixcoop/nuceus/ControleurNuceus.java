@@ -54,7 +54,7 @@ public class ControleurNuceus extends HttpServlet {
 		
 		if(action.equals("annulerAjout")){
 			
-			getServletContext().getRequestDispatcher("/WEB-INF/vues/vueResultatAjout.jsp").forward(request,response);
+			getServletContext().getRequestDispatcher("/WEB-INF/vues/vueListe.jsp").forward(request,response);
 			
 		}
 		if(action.equals("supprimerVariete")){
@@ -64,7 +64,7 @@ public class ControleurNuceus extends HttpServlet {
 		}
 		if(action.equals("demanderSuppression")){
 			
-			getServletContext().getRequestDispatcher("/WEB-INF/vues/vueSupprimerVariete.jsp").forward(request,response);
+			getServletContext().getRequestDispatcher("/WEB-INF/vues/vueDemanderSuppression.jsp").forward(request,response);
 		}
 		if(action.equals("ajouter")){
 			
