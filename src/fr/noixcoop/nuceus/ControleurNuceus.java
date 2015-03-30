@@ -57,6 +57,10 @@ public class ControleurNuceus extends HttpServlet {
 			getServletContext().getRequestDispatcher("/WEB-INF/vues/vueListe.jsp").forward(request,response);
 			
 		}
+		if(action.equals("retour")){
+			
+			getServletContext().getRequestDispatcher("/WEB-INF/vues/vueListe.jsp").forward(request,response);
+		}
 		if(action.equals("supprimerVariete")){
 			
 			getServletContext().getRequestDispatcher("/WEB-INF/vues/vueSupprimerVariete.jsp").forward(request,response);

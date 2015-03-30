@@ -10,14 +10,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="index.jsp" method="get">
+<form  method="get">
 	Voulez-vous vraiment supprimer cette variété ?
 	<tr>
 			<td><a href="?action=supprimerVariete">
 			<button type="submit" value="Valider">Oui</button></a></td>
 			
-			<td><a href="?action=annulerAjout">
-			<button type="reset" value="Annuler">Annuler</button></a></td>
+			<td><a href="?action=retour">
+			<button type="submit" value="Annuler">Annuler</button></a></td>
 	</tr>
 </form> 
 </body>
