@@ -10,7 +10,7 @@
 </head>
 <body>
 
-	<form action="get">
+	<form method="get">
 	
 		<label for ="libelle">Libellé : </label>
 		<input type="text" id="libelle" name="libelle" value="" size="20"/>
@@ -25,6 +25,7 @@
 	<a href="?action=visualiser">
 	<button type="submit" value="Ajouter">Resultat de l'ajout</button></a></a>
 
+	<a href="?action=annulerAjout">
 	<button type="reset" value="Annuler">Annuler</button></a></a>
 	
 	
