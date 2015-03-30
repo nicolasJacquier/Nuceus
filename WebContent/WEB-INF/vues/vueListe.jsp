@@ -49,7 +49,10 @@
 					<% 
 						}
 					%>
-					
+					<a href="?action=demanderSuppression">
+					<td><button method="get" action="?action=demanderSuppression&id=libelle"value="demanderSuppression">supprimer</button>
+					</td>
+					</a>
 					
 				</tr>
 			<% 
@@ -62,9 +65,8 @@
 	<br>
 	<a href="?action=renseignerAjout">
 	<button type="submit" value="Ajouter">Ajouter une Variété</button></a>
-	<br>
-	<a href="?action=supprimerVariete">
-	<button type="submit" value="Supprimer">Supprimer une Variété</button></a>
+
+
 	
 </center>
 </body>

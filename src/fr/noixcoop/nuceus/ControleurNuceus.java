@@ -1,6 +1,7 @@
 package fr.noixcoop.nuceus;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class ControleurNuceus
  */
 public class ControleurNuceus extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
        
     /**
@@ -60,6 +62,10 @@ public class ControleurNuceus extends HttpServlet {
 			getServletContext().getRequestDispatcher("/WEB-INF/vues/vueSupprimerVariete.jsp").forward(request,response);
 			
 		}
+		if(action.equals("demanderSuppression")){
+			
+			getServletContext().getRequestDispatcher("/WEB-INF/vues/vueSupprimerVariete.jsp").forward(request,response);
+		}
 		if(action.equals("ajouter")){
 			
 			String libelle = request.getParameter("libelle");
@@ -70,6 +76,7 @@ public class ControleurNuceus extends HttpServlet {
 				
 				aoc = "non";
 				aocObtenu = false;
+				
 			}
 			else{
 				
@@ -81,10 +88,13 @@ public class ControleurNuceus extends HttpServlet {
 			boolean ajoutOk = metierVarietes.ajouter(new Variete(libelle,aocObtenu));
 			
 			if(ajoutOk == true ){
+				
 				getServletContext().getRequestDispatcher("/WEB-INF/vues/vueResultatAjout.jsp").forward(request,response);
+				
 			}
 			else{
 				
+				getServletContext().getRequestDispatcher("/WEB-INF/vues/vueErreur.jsp").forward(request,response);
 				
 			}
 		}
