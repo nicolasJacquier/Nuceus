@@ -57,24 +57,31 @@ public class ControleurNuceus extends HttpServlet {
 			getServletContext().getRequestDispatcher("/WEB-INF/vues/vueListe.jsp").forward(request,response);
 			
 		}
+		
 		if(action.equals("retour")){
 			
 			getServletContext().getRequestDispatcher("/WEB-INF/vues/vueListe.jsp").forward(request,response);
+			
 		}
+		
 		if(action.equals("supprimerVariete")){
 			
 			getServletContext().getRequestDispatcher("/WEB-INF/vues/vueSupprimerVariete.jsp").forward(request,response);
 			
 		}
+		
 		if(action.equals("demanderSuppression")){
 			
 			getServletContext().getRequestDispatcher("/WEB-INF/vues/vueDemanderSuppression.jsp").forward(request,response);
+			
 		}
+		
 		if(action.equals("ajouter")){
 			
 			String libelle = request.getParameter("libelle");
 			String aoc = request.getParameter("aoc");
 			boolean aocObtenu;
+			
 			
 			if(aoc == null){
 				
@@ -91,16 +98,19 @@ public class ControleurNuceus extends HttpServlet {
 			
 			boolean ajoutOk = metierVarietes.ajouter(new Variete(libelle,aocObtenu));
 			
-			if(ajoutOk == true ){
+				if(ajoutOk){
+					
+					request.setAttribute("libelle", libelle);
+					request.setAttribute("aoc", aoc);
+					getServletContext().getRequestDispatcher("/WEB-INF/vues/vueResultatAjout.jsp").forward(request,response);
+					
+				}
 				
-				getServletContext().getRequestDispatcher("/WEB-INF/vues/vueResultatAjout.jsp").forward(request,response);
-				
-			}
-			else{
-				
-				getServletContext().getRequestDispatcher("/WEB-INF/vues/vueErreur.jsp").forward(request,response);
-				
-			}
+				else{
+					
+					getServletContext().getRequestDispatcher("/WEB-INF/vues/vueResultatAjout.jsp").forward(request,response);
+					
+				}
 		}
 		
 	}
