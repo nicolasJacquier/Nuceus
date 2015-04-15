@@ -75,43 +75,92 @@ public class ControleurNuceus extends HttpServlet {
 			getServletContext().getRequestDispatcher("/WEB-INF/vues/vueDemanderSuppression.jsp").forward(request,response);
 			
 		}
-		
-		if(action.equals("ajouter")){
-			
-			String libelle = request.getParameter("libelle");
-			String aoc = request.getParameter("aoc");
-			boolean aocObtenu;
-			
-			
-			if(aoc == null){
-				
-				aoc = "non";
-				aocObtenu = false;
-				
+		else if(action.equals("ajouter")){
+
+    		String libelle = request.getParameter("libelle") ;
+    		String aoc = request.getParameter("aoc") ;
+    		boolean aocObtenu ;
+
+    		if(aoc == null){
+
+    			aoc = "non" ;
+    			aocObtenu = false ;
+
 			}
+
+			else {
+
+				aoc = "oui" ;
+				aocObtenu = true ;
+
+			}
+
+			boolean ajoutOk = metierVarietes.ajouter(new Variete(libelle,aocObtenu)) ;
+
+			if(ajoutOk){
+
+				request.setAttribute("variete", metierVarietes.consulter().get(metierVarietes.consulter().size()-1));
+				getServletContext().getRequestDispatcher("/WEB-INF/vues/vueResultatAjout.jsp").forward(request, response); ;
+
+			}
+
 			else{
-				
-				aoc = "oui";
-				aocObtenu = true;
-				
+
+				request.setAttribute("variete", null);
+				getServletContext().getRequestDispatcher("/WEB-INF/vues/vueResultatAjout.jsp").forward(request, response); ;
+
 			}
-			
-			boolean ajoutOk = metierVarietes.ajouter(new Variete(libelle,aocObtenu));
-			
-				if(ajoutOk){
-					
-					request.setAttribute("libelle", libelle);
-					request.setAttribute("aoc", aoc);
-					getServletContext().getRequestDispatcher("/WEB-INF/vues/vueResultatAjout.jsp").forward(request,response);
-					
-				}
-				
-				else{
-					
-					getServletContext().getRequestDispatcher("/WEB-INF/vues/vueResultatAjout.jsp").forward(request,response);
-					
-				}
 		}
+
+    	else if(action.equals("supprimer")){
+
+			 String libelle = request.getParameter("libelle") ;
+			 boolean ok = metierVarietes.supprimerVariete(libelle) ;
+
+			 if(ok){
+
+				 request.setAttribute("varietes",metierVarietes.consulter()) ;
+				 getServletContext().getRequestDispatcher("/WEB-INF/vues/vueListe.jsp").forward(request,response) ;
+
+			 }
+		}
+	}
+//		if(action.equals("ajouter")){
+//			
+//			String libelle = request.getParameter("libelle");
+//			String aoc = request.getParameter("aoc");
+//			boolean aocObtenu;
+//			
+//			
+//			if(aoc == null){
+//				
+//				aoc = "non";
+//				aocObtenu = false;
+//				
+//			}
+//			else{
+//				
+//				aoc = "oui";
+//				aocObtenu = true;
+//				
+//			}
+//			
+//			boolean ajoutOk = metierVarietes.ajouter(new Variete(libelle,aocObtenu));
+//			
+//				if(ajoutOk){
+//					
+//					request.setAttribute("libelle", libelle);
+//					request.setAttribute("aoc", aoc);
+//					getServletContext().getRequestDispatcher("/WEB-INF/vues/vueResultatAjout.jsp").forward(request,response);
+//					
+//				}
+//				
+//				else{
+//					
+//					getServletContext().getRequestDispatcher("/WEB-INF/vues/vueResultatAjout.jsp").forward(request,response);
+//					
+//				}
+//		}
 		
 	}
 
